@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TENNYSON</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #fff7e8;
+        --gold: #ffd166;
+        --aqua: #4ecdc4;
+        --rose: #ff5c8a;
+        --night: #141319;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100%;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        font-family: Impact, Haettenschweiler, "Arial Black", system-ui, sans-serif;
+        background:
+          radial-gradient(circle at 18% 24%, rgba(255, 209, 102, 0.36), transparent 18rem),
+          radial-gradient(circle at 83% 30%, rgba(78, 205, 196, 0.32), transparent 16rem),
+          radial-gradient(circle at 55% 82%, rgba(255, 92, 138, 0.28), transparent 20rem),
+          linear-gradient(135deg, #10131c 0%, var(--night) 44%, #211626 100%);
+      }
+
+      main {
+        width: min(94vw, 1800px);
+        padding: clamp(1rem, 3vw, 3rem);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(4.6rem, 20vw, 21rem);
+        line-height: 0.82;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-shadow:
+          0.035em 0.035em 0 var(--rose),
+          -0.035em -0.025em 0 var(--aqua),
+          0 0.08em 0.18em rgba(0, 0, 0, 0.48);
+        transform: skew(-4deg) rotate(-1deg);
+      }
+
+      h1::selection {
+        color: #151515;
+        background: var(--gold);
+      }
+
+      .burst {
+        position: fixed;
+        inset: -20vmax;
+        z-index: -1;
+        background:
+          repeating-conic-gradient(
+            from -8deg,
+            rgba(255, 255, 255, 0.08) 0deg 5deg,
+            transparent 5deg 13deg
+          );
+        animation: spin 38s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .burst {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="burst" aria-hidden="true"></div>
+    <main>
+      <h1>TENNYSON</h1>
+    </main>
+  </body>
+</html>
