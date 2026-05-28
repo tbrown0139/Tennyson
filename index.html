@@ -46,6 +46,7 @@
       h1 {
         margin: 0;
         color: var(--ink);
+        cursor: pointer;
         font-size: clamp(4.6rem, 20vw, 21rem);
         line-height: 0.82;
         letter-spacing: 0;
@@ -55,6 +56,80 @@
           -0.035em -0.025em 0 var(--aqua),
           0 0.08em 0.18em rgba(0, 0, 0, 0.48);
         transform: skew(-4deg) rotate(-1deg);
+        user-select: none;
+      }
+
+      h1:focus-visible {
+        outline: 0.08em solid var(--gold);
+        outline-offset: 0.08em;
+      }
+
+      .spark {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        animation: firework 760ms ease-out forwards;
+        box-shadow:
+          0 -4.6rem 0 var(--gold),
+          3.3rem -3.3rem 0 var(--aqua),
+          4.6rem 0 0 var(--rose),
+          3.3rem 3.3rem 0 #ffffff,
+          0 4.6rem 0 var(--gold),
+          -3.3rem 3.3rem 0 var(--aqua),
+          -4.6rem 0 0 var(--rose),
+          -3.3rem -3.3rem 0 #ffffff;
+      }
+
+      @keyframes firework {
+        0% {
+          opacity: 1;
+          filter: blur(0);
+          transform: translate(-50%, -50%) scale(0.15) rotate(0deg);
+        }
+
+        70% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          filter: blur(0.08rem);
+          transform: translate(-50%, -50%) scale(1.15) rotate(35deg);
+        }
+      }
+
+      .links {
+        position: fixed;
+        right: clamp(1rem, 3vw, 2rem);
+        bottom: clamp(1rem, 3vw, 2rem);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.75rem;
+      }
+
+      a {
+        color: #171717;
+        background: var(--gold);
+        border: 3px solid #fff7e8;
+        border-radius: 999px;
+        padding: 0.8rem 1.1rem;
+        font-family: "Arial Black", Impact, system-ui, sans-serif;
+        font-size: clamp(0.9rem, 2.4vw, 1.2rem);
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: 0 0.55rem 0 rgba(0, 0, 0, 0.35);
+      }
+
+      a:hover,
+      a:focus-visible {
+        transform: translateY(-0.12rem);
       }
 
       h1::selection {
@@ -91,7 +166,43 @@
   <body>
     <div class="burst" aria-hidden="true"></div>
     <main>
-      <h1>TENNYSON</h1>
+      <h1 tabindex="0" aria-label="TENNYSON. Click for fireworks.">TENNYSON</h1>
     </main>
+    <nav class="links" aria-label="Site pages">
+      <a href="doge.html">About me</a>
+      <a href="secret.html">Secret</a>
+    </nav>
+    <script>
+      const title = document.querySelector("h1");
+
+      function launchFirework(x, y) {
+        for (let i = 0; i < 4; i += 1) {
+          const spark = document.createElement("span");
+          const jitterX = (Math.random() - 0.5) * 80;
+          const jitterY = (Math.random() - 0.5) * 80;
+
+          spark.className = "spark";
+          spark.style.left = `${x + jitterX}px`;
+          spark.style.top = `${y + jitterY}px`;
+          spark.style.animationDelay = `${i * 80}ms`;
+          document.body.append(spark);
+          spark.addEventListener("animationend", () => spark.remove());
+        }
+      }
+
+      title.addEventListener("click", (event) => {
+        launchFirework(event.clientX, event.clientY);
+      });
+
+      title.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") {
+          return;
+        }
+
+        event.preventDefault();
+        const box = title.getBoundingClientRect();
+        launchFirework(box.left + box.width / 2, box.top + box.height / 2);
+      });
+    </script>
   </body>
 </html>
