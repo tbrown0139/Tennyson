@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roblox Game Idea Generator</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #fffaf0;
+        --gold: #ffd166;
+        --green: #72ef92;
+        --blue: #4cc9f0;
+        --pink: #ff70a6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(114, 239, 146, 0.3), transparent 18rem),
+          radial-gradient(circle at 82% 78%, rgba(76, 201, 240, 0.26), transparent 18rem),
+          linear-gradient(135deg, #111827 0%, #17223b 52%, #201436 100%);
+      }
+
+      a,
+      button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.8rem;
+        color: #111827;
+        background: var(--gold);
+        border: 3px solid var(--ink);
+        border-radius: 999px;
+        padding: 0.7rem 1rem;
+        font-family: "Arial Black", Impact, system-ui, sans-serif;
+        font-size: 0.95rem;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: 0 0.45rem 0 rgba(0, 0, 0, 0.36);
+        cursor: pointer;
+      }
+
+      .back {
+        position: fixed;
+        top: clamp(1rem, 3vw, 2rem);
+        left: clamp(1rem, 3vw, 2rem);
+      }
+
+      main {
+        width: min(94vw, 980px);
+        min-height: 100vh;
+        margin: 0 auto;
+        padding: clamp(5.5rem, 10vw, 7rem) 0 clamp(1rem, 3vw, 2rem);
+        display: grid;
+        align-content: center;
+        gap: 1rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Impact, Haettenschweiler, "Arial Black", system-ui, sans-serif;
+        font-size: clamp(3.6rem, 12vw, 9rem);
+        line-height: 0.9;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-shadow: 0.035em 0.035em 0 var(--pink), -0.035em -0.025em 0 var(--blue);
+      }
+
+      .idea {
+        min-height: 13rem;
+        display: grid;
+        align-content: center;
+        gap: 0.8rem;
+        padding: clamp(1rem, 3vw, 2rem);
+        border: 3px solid rgba(255, 255, 255, 0.86);
+        background: rgba(11, 18, 32, 0.84);
+        box-shadow: 0 0.8rem 0 rgba(0, 0, 0, 0.28);
+      }
+
+      .idea strong {
+        color: var(--green);
+        font-family: Impact, Haettenschweiler, "Arial Black", system-ui, sans-serif;
+        font-size: clamp(2rem, 6vw, 4.5rem);
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .idea p {
+        margin: 0;
+        font-size: clamp(1rem, 2.2vw, 1.35rem);
+        font-weight: 850;
+        line-height: 1.45;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="back" href="index.html">Back</a>
+    <main>
+      <h1>Roblox idea generator</h1>
+      <section class="idea" aria-live="polite">
+        <strong id="idea-title">Lava mall escape</strong>
+        <p id="idea-copy">Players race through a shopping mall while lava rises and every store has a power-up.</p>
+      </section>
+      <button type="button">Generate idea</button>
+    </main>
+    <script>
+      const places = ["mall", "moon base", "pizza city", "jungle temple", "sky train", "laser school", "candy factory", "volcano island"];
+      const twists = ["lava rises", "everyone has jetpacks", "the floor changes every 10 seconds", "players swap powers", "pets solve puzzles", "gravity turns off", "boss doors appear", "coins unlock secret routes"];
+      const goals = ["escape", "build the best base", "survive five rounds", "win the race", "find the hidden vault", "protect the team", "collect rare upgrades", "beat the mega obby"];
+      const title = document.querySelector("#idea-title");
+      const copy = document.querySelector("#idea-copy");
+
+      function pick(list) {
+        return list[Math.floor(Math.random() * list.length)];
+      }
+
+      document.querySelector("button").addEventListener("click", () => {
+        const place = pick(places);
+        const twist = pick(twists);
+        const goal = pick(goals);
+        title.textContent = `${place} ${goal}`;
+        copy.textContent = `Players enter a ${place} where ${twist}. The mission is to ${goal}, earn upgrades, and discover a secret Knovon research badge.`;
+      });
+    </script>
+  </body>
+</html>

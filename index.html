@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TENNYSON</title>
+    <meta name="description" content="Meet Tennyson, Roblox researcher at Knovon.">
+    <meta property="og:title" content="Meet Tennyson">
+    <meta property="og:description" content="Meet Tennyson, Roblox researcher at Knovon.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="share-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meet Tennyson">
+    <meta name="twitter:description" content="Meet Tennyson, Roblox researcher at Knovon.">
+    <meta name="twitter:image" content="share-card.svg">
     <style>
       :root {
         color-scheme: dark;
@@ -12,6 +21,30 @@
         --aqua: #4ecdc4;
         --rose: #ff5c8a;
         --night: #141319;
+      }
+
+      body.theme-space {
+        --ink: #f6f1ff;
+        --gold: #b8f7ff;
+        --aqua: #8f7cff;
+        --rose: #ff70a6;
+        --night: #090f22;
+      }
+
+      body.theme-cat {
+        --ink: #fff7e8;
+        --gold: #ffd166;
+        --aqua: #66e89c;
+        --rose: #ff8fab;
+        --night: #231915;
+      }
+
+      body.theme-research {
+        --ink: #f7fbff;
+        --gold: #72ef92;
+        --aqua: #4cc9f0;
+        --rose: #ffd166;
+        --night: #0b1720;
       }
 
       * {
@@ -132,6 +165,36 @@
         transform: translateY(-0.12rem);
       }
 
+      .themes {
+        position: fixed;
+        top: clamp(1rem, 3vw, 2rem);
+        right: clamp(1rem, 3vw, 2rem);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.55rem;
+      }
+
+      .themes button {
+        min-height: 2.45rem;
+        color: #171717;
+        background: var(--ink);
+        border: 3px solid var(--gold);
+        border-radius: 999px;
+        padding: 0.5rem 0.75rem;
+        font-family: "Arial Black", Impact, system-ui, sans-serif;
+        font-size: clamp(0.72rem, 2vw, 0.95rem);
+        letter-spacing: 0;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: 0 0.38rem 0 rgba(0, 0, 0, 0.32);
+      }
+
+      .themes button:hover,
+      .themes button:focus-visible {
+        transform: translateY(-0.1rem);
+      }
+
       h1::selection {
         color: #151515;
         background: var(--gold);
@@ -165,17 +228,41 @@
   </head>
   <body>
     <div class="burst" aria-hidden="true"></div>
+    <div class="themes" aria-label="Theme switcher">
+      <button type="button" data-theme="">Neon</button>
+      <button type="button" data-theme="theme-space">Space</button>
+      <button type="button" data-theme="theme-cat">Cat</button>
+      <button type="button" data-theme="theme-research">Lab</button>
+    </div>
     <main>
       <h1 tabindex="0" aria-label="TENNYSON. Click for fireworks.">TENNYSON</h1>
     </main>
     <nav class="links" aria-label="Site pages">
       <a href="doge.html">About me</a>
       <a href="secret.html">Secret</a>
+      <a href="avatar.html">Avatar</a>
       <a href="knovon.html">Knovon</a>
       <a href="games.html">Games</a>
+      <a href="hunt.html">Code hunt</a>
+      <a href="ideas.html">Ideas</a>
     </nav>
     <script>
       const title = document.querySelector("h1");
+      const themeButtons = document.querySelectorAll("[data-theme]");
+
+      function setTheme(theme) {
+        document.body.classList.remove("theme-space", "theme-cat", "theme-research");
+        if (theme) {
+          document.body.classList.add(theme);
+        }
+        localStorage.setItem("tennyson-theme", theme);
+      }
+
+      setTheme(localStorage.getItem("tennyson-theme") || "");
+
+      themeButtons.forEach((button) => {
+        button.addEventListener("click", () => setTheme(button.dataset.theme));
+      });
 
       function launchFirework(x, y) {
         for (let i = 0; i < 4; i += 1) {

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Meet Tennyson</title>
+  <desc id="desc">Meet Tennyson, Roblox researcher at Knovon.</desc>
+  <defs>
+    <radialGradient id="gold" cx="18%" cy="24%" r="45%">
+      <stop offset="0" stop-color="#ffd166" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#ffd166" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aqua" cx="83%" cy="30%" r="42%">
+      <stop offset="0" stop-color="#4ecdc4" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#4ecdc4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rose" cx="55%" cy="82%" r="50%">
+      <stop offset="0" stop-color="#ff5c8a" stop-opacity=".36"/>
+      <stop offset="1" stop-color="#ff5c8a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="night" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#10131c"/>
+      <stop offset=".48" stop-color="#141319"/>
+      <stop offset="1" stop-color="#211626"/>
+    </linearGradient>
+    <pattern id="rays" width="120" height="120" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+      <rect width="58" height="120" fill="#ffffff" opacity=".08"/>
+      <rect x="58" width="62" height="120" fill="transparent"/>
+      <animateTransform attributeName="patternTransform" type="rotate" from="0 600 315" to="360 600 315" dur="38s" repeatCount="indefinite"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#night)"/>
+  <rect width="1200" height="630" fill="url(#gold)"/>
+  <rect width="1200" height="630" fill="url(#aqua)"/>
+  <rect width="1200" height="630" fill="url(#rose)"/>
+  <rect x="-140" y="-140" width="1480" height="910" fill="url(#rays)"/>
+  <g transform="translate(600 315) rotate(-1) skewX(-4)">
+    <text x="0" y="45" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="172" fill="#ff5c8a">TENNYSON</text>
+    <text x="-12" y="29" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="172" fill="#4ecdc4">TENNYSON</text>
+    <text x="0" y="35" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="172" fill="#fff7e8">TENNYSON</text>
+  </g>
+  <rect x="36" y="36" width="418" height="54" rx="27" fill="#ffd166" stroke="#fff7e8" stroke-width="6"/>
+  <text x="64" y="72" font-family="Arial Black, Impact, sans-serif" font-size="24" fill="#171717">MEET TENNYSON</text>
+  <text x="62" y="572" font-family="Arial Black, Impact, sans-serif" font-size="34" fill="#fff7e8">Roblox researcher at Knovon</text>
+</svg>
