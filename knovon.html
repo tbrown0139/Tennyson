@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Knovon</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #fffaf0;
+        --blue: #5cc8ff;
+        --green: #65f58a;
+        --pink: #ff6ba8;
+        --gold: #ffd166;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: clamp(1rem, 3vw, 2rem);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 18% 22%, rgba(92, 200, 255, 0.34), transparent 18rem),
+          radial-gradient(circle at 85% 75%, rgba(101, 245, 138, 0.25), transparent 18rem),
+          linear-gradient(135deg, #12152a 0%, #25143a 55%, #14231d 100%);
+      }
+
+      a {
+        position: fixed;
+        top: clamp(1rem, 3vw, 2rem);
+        left: clamp(1rem, 3vw, 2rem);
+        color: #111827;
+        background: var(--gold);
+        border: 3px solid var(--ink);
+        border-radius: 999px;
+        padding: 0.72rem 1rem;
+        font-family: "Arial Black", Impact, system-ui, sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: 0 0.45rem 0 rgba(0, 0, 0, 0.35);
+      }
+
+      main {
+        width: min(94vw, 980px);
+        display: grid;
+        gap: 1rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Impact, Haettenschweiler, "Arial Black", system-ui, sans-serif;
+        font-size: clamp(5rem, 18vw, 14rem);
+        line-height: 0.82;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-shadow:
+          0.035em 0.035em 0 var(--pink),
+          -0.035em -0.025em 0 var(--blue),
+          0 0.09em 0.2em rgba(0, 0, 0, 0.45);
+      }
+
+      p {
+        max-width: 54rem;
+        margin: 0;
+        font-size: clamp(1.2rem, 2.6vw, 2rem);
+        font-weight: 900;
+        line-height: 1.35;
+      }
+
+      .badge {
+        width: fit-content;
+        color: #111827;
+        background: var(--green);
+        border: 3px solid var(--ink);
+        border-radius: 999px;
+        padding: 0.65rem 0.9rem;
+        font-family: "Arial Black", Impact, system-ui, sans-serif;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html">Back</a>
+    <main>
+      <div class="badge">Knovon page</div>
+      <h1>Knovon</h1>
+      <p>
+        Knovon gets a special page on the site. Big name, bright colors, maximum attention.
+      </p>
+    </main>
+  </body>
+</html>
